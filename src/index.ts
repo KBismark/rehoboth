@@ -58,7 +58,7 @@ app.get('*', (req, res) => {
 });
 
 // Start server in development mode
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3001;
   const SERVER_URL = process.env.SERVER_URL || `http://localhost:${PORT}`;
   
@@ -67,7 +67,7 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`- Health check: ${SERVER_URL}/api/health`);
     console.log(`- Server URL: ${SERVER_URL}`);
   });
-}
+// }
 
 
 export default app;
