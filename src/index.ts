@@ -36,9 +36,9 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 };
 
-app.use(cors(corsOptions));
+app.use(cors(/*corsOptions*/));
 
-app.options('*', cors(corsOptions));
+app.options('*', cors(/*corsOptions*/));
 
 
 app.use(express.static(path.join(process.cwd(), 'public')));
