@@ -9,16 +9,10 @@
     "dev:server": "tsx watch src/index.ts",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:full": "concurrently \"npm run dev:frontend\" \"npm run dev:server\"",
-    "before-build": "npm install && cd frontend && npm install",
     "prebuild": "cd frontend && pnpm install && pnpm run build",
     "build": "cp -r frontend/dist/* public/ && pnpm install && tsc",
-    "clean": "rimraf dist",
-    "start": "node dist/index.js",
-    "build:frontend": "cd frontend && npm run build",
-    "build:server": "tsc",
-    "vercel:build": "cd frontend && npm run build && cd .. && cp -r frontend/dist/* public/ && npm run build:server",
-    "vercel:start": "node dist/index.js",
-    "vercel:dev": "npm run vercel:build && npm run vercel:start"
+    "build:vercel": "node -e \"require('fs').mkdirSync('dist/public', {recursive: true})\" && cp -r public/* dist/public/",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
