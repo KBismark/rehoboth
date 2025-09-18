@@ -13,7 +13,7 @@
     "start": "node dist/index.js",
     "build:frontend": "cd frontend && npm run build",
     "build:server": "tsc",
-    "vercel:build": "cd frontend && npm run build && cd .. && npm run build:server",
+    "vercel:build": "cd frontend && npm run build && cd .. && cp -r frontend/dist/* public/ && npm run build:server",
     "vercel:start": "node dist/index.js",
     "vercel:dev": "npm run vercel:build && npm run vercel:start"
   },

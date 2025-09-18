@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm run build && cd .. && npm run build:server",
+  "buildCommand": "cd frontend && npm run build && cd .. && cp -r frontend/dist/* public/ && npm run build:server",
   "installCommand": "npm install && cd frontend && npm install",
   "outputDirectory": "public",
   "builds": [
