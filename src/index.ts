@@ -15,15 +15,15 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'"],
       scriptSrc: ["'self'"],
       imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'"],
+      connectSrc: ["'self'", "*"],
       fontSrc: ["'self'"],
       objectSrc: ["'none'"],
       mediaSrc: ["'self'"],
-      frameSrc: ["'none'"],
+      frameSrc: ["'self'", "*"],
     },
   },
   // Disabled for better compatibility
-  crossOriginEmbedderPolicy: false, 
+  crossOriginEmbedderPolicy: false,
 }));
 
 const corsOptions = {

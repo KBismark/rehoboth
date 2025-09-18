@@ -11,7 +11,7 @@
     "dev:full": "concurrently \"npm run dev:frontend\" \"npm run dev:server\"",
     "prebuild": "cd frontend && pnpm install && pnpm run build",
     "build": "cp -r frontend/dist/* public/ && pnpm install && tsc",
-    "build:vercel": "node -e \"require('fs').mkdirSync('dist/public', {recursive: true})\" && cp -r public/* dist/public/",
+    "build:vercel": "node vercel-setup.js && cp -r public/* dist/public/",
     "start": "node dist/index.js"
   },
   "dependencies": {
