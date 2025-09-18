@@ -1,0 +1,34 @@
+{
+  "name": "flower-ecommerce-server",
+  "version": "1.0.0",
+  "description": "Backend server for flower e-commerce application",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "cd frontend && npm run build && cd .. && cp -r frontend/dist/* public/ && tsx watch src/index.ts",
+    "dev:server": "tsx watch src/index.ts",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:full": "concurrently \"npm run dev:frontend\" \"npm run dev:server\"",
+    "build": "cd frontend && npm run build && cd .. && cp -r frontend/dist/* public/ && tsc",
+    "start": "node dist/index.js",
+    "build:frontend": "cd frontend && npm run build",
+    "build:server": "tsc",
+    "vercel:build": "cd frontend && npm run build && cd .. && npm run build:server",
+    "vercel:start": "node dist/index.js",
+    "vercel:dev": "npm run vercel:build && npm run vercel:start"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.9.0",
+    "concurrently": "^8.2.2",
+    "tsx": "^4.1.4",
+    "typescript": "^5.2.2"
+  }
+}
